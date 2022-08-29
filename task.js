@@ -31,20 +31,11 @@ Student.prototype.addMarks = function(...marks){
 
   
 Student.prototype.getAverage = function(){
-  // console.log(this.marks)
-  let i = 0;
-  let sum = 0;
-    while (this.marks[i]) {
-      sum += this.marks[i];
-      i++;
-      // this.marks++;
-    }
-  return sum / i;
+  
+  return  this.marks.reduce((acc, mark) => acc + mark / this.marks.length, 0).toFixed(2);
 }
 
 Student.prototype.exclude = function(reason) {
-  delete Student.marks;
-  delete Student.subject;
-
   this.exclude = reason;
+
 }
